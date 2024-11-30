@@ -1,0 +1,20 @@
+{
+    "name": "yield",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+      "ui",
+      "api"
+    ],
+    "scripts": {
+      "start:ui": "npm run dev --workspace=ui",
+      "start:api": "go run ./api/main.go",
+      "start": "npm-run-all --parallel start:ui start:api",
+      "build:ui": "npm run build --workspace=ui",
+      "build:api": "npm run build --workspace=api",
+      "build": "npm-run-all build:ui build:api"
+    },
+    "devDependencies": {
+      "npm-run-all": "^4.1.5"
+    }
+  }
