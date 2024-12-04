@@ -1,7 +1,7 @@
 import { ISnapshotTickers } from "@polygon.io/client-js";
 import { motion, useAnimation } from "framer-motion";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Skeleton } from "./ui/skeleton";
 
 export default function InfiniteScrollTicker({

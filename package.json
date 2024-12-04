@@ -13,8 +13,8 @@
         "build:ui": "npm run build --workspace=ui",
         "build:api": "npm run build --workspace=api",
         "build": "npm-run-all build:ui build:api",
-        "predeploy" : "npm run build",
-        "deploy" : "gh-pages -d build"
+        "predeploy" : "npm run build:ui",
+        "deploy" : "gh-pages -d ui/dist"
     },
     "devDependencies": {
         "gh-pages": "^6.2.0",

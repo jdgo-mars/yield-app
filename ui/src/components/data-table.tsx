@@ -61,7 +61,7 @@ export const columns: ColumnDef<ITickerTypes["results"]>[] = [
   },
 ];
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<_TData, TValue> {
   columns: ColumnDef<ITickerTypes["results"], TValue>[];
   data: ITickerTypes["results"][];
   isLoading: boolean;

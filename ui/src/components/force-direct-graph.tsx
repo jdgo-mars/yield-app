@@ -9,26 +9,27 @@ import {
 } from "@/components/ui/card";
 import { useData } from "@/hooks/use-data";
 
-const graphData = {
-  nodes: [
-    { id: "Node 1", group: 1 },
-    { id: "Node 2", group: 1 },
-    { id: "Node 3", group: 2 },
-    { id: "Node 4", group: 2 },
-    { id: "Node 5", group: 3 },
-  ],
-  links: [
-    { source: "Node 1", target: "Node 2" },
-    { source: "Node 1", target: "Node 3" },
-    { source: "Node 2", target: "Node 4" },
-    { source: "Node 3", target: "Node 4" },
-    { source: "Node 4", target: "Node 5" },
-  ],
-};
+// const graphData = {
+//   nodes: [
+//     { id: "Node 1", group: 1 },
+//     { id: "Node 2", group: 1 },
+//     { id: "Node 3", group: 2 },
+//     { id: "Node 4", group: 2 },
+//     { id: "Node 5", group: 3 },
+//   ],
+//   links: [
+//     { source: "Node 1", target: "Node 2" },
+//     { source: "Node 1", target: "Node 3" },
+//     { source: "Node 2", target: "Node 4" },
+//     { source: "Node 3", target: "Node 4" },
+//     { source: "Node 4", target: "Node 5" },
+//   ],
+// };
 
 function getRelatedCompanies(): Promise<{ results: { ticker: string }[] }> {
-  const url =
-    "https://api.polygon.io/v1/related-companies/AAPL?apiKey=Ad9CdofH2WsrU6IYZLg0bIaKbQd8SpOw";
+  const url = `https://api.polygon.io/v1/related-companies/AAPL?apiKey=${
+    import.meta.env.VITE_POLY_API_KEY
+  }`;
 
   return fetch(url).then((res) => res.json());
 }
