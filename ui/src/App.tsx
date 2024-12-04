@@ -1,7 +1,15 @@
-import "./App.css";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import AppRoutes from "@/app-routes";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "sonner";
 
-function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <AppRoutes />
+      </GoogleOAuthProvider>
+      <Toaster richColors />
+    </ThemeProvider>
+  );
+};
