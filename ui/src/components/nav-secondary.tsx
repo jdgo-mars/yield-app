@@ -9,6 +9,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import ModeToggle from "./mode-toggle";
+import { useNavigate } from "react-router-dom";
 
 export function NavSecondary({
   items,
@@ -20,6 +21,7 @@ export function NavSecondary({
     icon: LucideIcon;
   }[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+  const navigate = useNavigate();
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
@@ -27,7 +29,11 @@ export function NavSecondary({
           {items.map((item) => (
             <SidebarMenuItem className="py-4" key={item.title}>
               <SidebarMenuButton asChild size="sm">
-                <a href={item.url}>
+                <a
+                  onClick={() => {
+                    navigate(item.url);
+                  }}
+                >
                   <item.icon />
                   <span>{item.title}</span>
                 </a>
